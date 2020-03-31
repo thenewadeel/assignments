@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 8</title>
+  </head>
+  <body>
+    <div class="row">
+      <h2>Task 1</h2>
+      <div class="question">
+        <p>
+          The following UML class diagram illustrates an inheritance
+          relationship, wherein the classes Circle and Rectangle have been
+          extended from the class GeometricObject.
+        </p>
+        <img src="GeometricObject_Inheritance.jpg" alt="question class" />
+        <p>
+          You’re required to implement the classes GeometricObject and
+          Rectangle.
+          <br />The Rectangle class contains:
+        </p>
+        <ul>
+          <li>
+            Two double data fields named width and height that specify the width
+            and height of the rectangle. The default values are 1.0 for both
+            width and height.
+          </li>
+          <li>A no-arg constructor that creates a default rectangle.</li>
+          <li>
+            A constructor that creates a rectangle with the specified width and
+            height.
+          </li>
+          <li>
+            A method named getArea() that returns the area of this rectangle.
+          </li>
+          <li>A method named getPerimeter() that returns the perimeter.</li>
+          <li>
+            A method named toString() that returns a string description for the
+            rectangle.
+          </li>
+        </ul>
+        <p>
+          The toString() method is implemented as follows:
+        </p>
+        <p>return "Rectangle: width = " + width + " height = " + height;</p>
+        <p>
+          Write a test program that prompts the user to enter width and height
+          of the rectangle, a color, and a Boolean value to indicate whether the
+          rectangle is filled. The program should create a Rectangle object and
+          set the color and filled properties using the input. The program
+          should display the area, perimeter, color, and true or false to
+          indicate whether it is filled or not.
+        </p>
+      </div>
+      <div class="answer">
+        <label for="widthInput">Width:</label>
+        <input type="number" id="widthInput" id="" />
+        <br />
+        <label for="heightInput">Height:</label>
+        <input type="number" id="heightInput" id="" />
+        <br />
+        <label for="colorInput">Color:</label>
+        <input type="color" id="colorInput" id="" />
+        <br />
+        <label for="filledInput">Filled:</label>
+        <input type="checkbox" id="filledInput" id="" />
+        <br />
+        <button onclick="testFunc()">Make Rectangle</button>
+        <div id="console">
+          <h3>Output</h3>
+          <div id="output"></div>
+          <br />
+        </div>
+      </div>
+    </div>
+    <style>
+      * {
+        padding: 2px;
+      }
+      .question > img {
+        /* max-width: 300px; */
+      }
+      .question {
+        /* width: 45%; */
+        border: 3px solid chartreuse;
+        /* float: left; */
+      }
+      .answer {
+        /* float: left; */
+        /* width: 45%; */
+        border: 3px solid red;
+        height: 650px;
+      }
+      #console {
+        /* float: left; */
+        /* width: 60%; */
+        border: 3px dashed cyan;
+      }
+    </style>
+    <script src="task1Script.js"></script>
+  </body>
+</html>
