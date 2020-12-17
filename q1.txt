@@ -1,0 +1,73 @@
+package Package1;
+
+public class Smart_Fan {
+    public boolean sw = false; // This controls on/off feature of fan.
+    public boolean rotate = false; // This controls stop/rotate feature of fan.
+    int speed = 1; // speed of fan
+    public boolean wifi = false; // Wifi connectivity status
+    public int battery_lvl = 100;
+    
+    // To turn on/off fan
+    public void swFan (int a){
+        if (a == 1){
+            sw = true;
+        }
+        else if(a == 0){
+            sw = false;
+        }
+        else{
+            System.out.println("Wrong parameter!");
+        }
+    }
+    
+    // Rotation control of fan
+      public void fanRotate (int a){
+        if (a == 1){
+            rotate = true;
+        }
+        else if(a == 0){
+            rotate = false;
+        }
+        else{
+            System.out.println("Wrong parameter!");
+        }
+    }
+    
+      // Fan speed method
+      public void fanSpeed(int a){
+        switch(a) {
+             case 1:
+               speed = 1;
+               break;
+            case 2:
+               speed = 2;
+               break; 
+            case 3:
+               speed = 3;
+               break;
+            case 4:
+               speed = 4;
+               break;
+            case 5:
+               speed = 5;
+               break;
+            case 6:
+               speed = 6;
+               break;
+            case 7:
+               speed = 7;
+               break;
+            case 8:
+               speed = 8;
+               break;
+            case 9:
+               speed = 10;
+               break;
+            case 10:
+               speed = 10;
+               break;   
+            default:
+               speed = 1;
+        }
+      }
+}

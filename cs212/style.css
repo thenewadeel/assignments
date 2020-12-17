@@ -1,0 +1,62 @@
+/* "pageContainer">
+        <div class="header"></div>
+        <div class="leftMargin"></div>
+        <div class="rightMargin"></div>
+        <div class="questionSpace"></div>
+        <div class="solutionSpace" */
+
+body {
+    display: contents;
+}
+
+.pageContainer {
+    height: 100vh;
+    width: 100vw;
+
+    display: grid;
+    grid-template-columns: 1fr 4fr 4fr 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
+    grid-template-areas: 'leftMargin header header rightMargin'
+        'leftMargin questionSpace solutionSpace rightMargin'
+        'leftMargin footer footer rightMargin';
+}
+
+.header {
+    grid-area: header;
+    background: powderblue;
+}
+
+.footer {
+    grid-area: footer;
+    background: slateblue;
+}
+
+.leftMargin {
+    grid-area: leftMargin;
+    background: plum;
+}
+
+.rightMargin {
+    grid-area: rightMargin;
+    background: olivedrab;
+}
+
+.questionSpace {
+    grid-area: questionSpace;
+    background: lightseagreen;
+}
+
+.solutionSpace {
+    grid-area: solutionSpace;
+    background: khaki;
+}
+
+.footer {
+    grid-area: footer;
+    background: indigo;
+}
+
+.pdfContainer {
+    width: 100%;
+    height: 100%;
+}
