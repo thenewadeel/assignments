@@ -195,15 +195,79 @@ summary {
 </div>
 
 
-<div id="intro" class="section level1">
-<h1>Intro</h1>
+<div id="herrarchial-clustering-using-r" class="section level1">
+<h1>Herrarchial Clustering Using R</h1>
+<div id="intro" class="section level2">
+<h2>Intro</h2>
 <p>R is a natural place to play with data and collections of natural / artificial data recorders, commonly in the form of electronic devices, ranging fromm cell phones to embedded platforms.</p>
-<pre class="r"><code>set.seed(786)
-DF&lt;-read.csv('input.csv',sep=';')
-print('Found columns:')</code></pre>
-<pre><code>## [1] &quot;Found columns:&quot;</code></pre>
+</div>
+<div id="process" class="section level2">
+<h2>Process</h2>
+<ol style="list-style-type: decimal">
+<li>Install R</li>
+<li>Prepare csv from input file (Excel .xlsx)</li>
+<li>Start R</li>
+</ol>
+</div>
+<div id="assignment" class="section level2">
+<h2>Assignment</h2>
+<ol start="2" style="list-style-type: decimal">
+<li>Excel Sheet to be downloaded from link provided</li>
+<li>Perform MBA Using R and share most watched</li>
+<li>Create appropriate visualizations to describe variables and answer the following questions :
+<ul>
+<li>Find top 3 movies?</li>
+<li>Which age range likes superhero movies?</li>
+</ul></li>
+<li>Using Hierarchial Clustering to find which gender / age group likes which of the top favourite movies?</li>
+</ol>
+</div>
+<div id="solution" class="section level2">
+<h2>Solution</h2>
+<div id="loading-excel-data" class="section level3">
+<h3>Loading Excel Data</h3>
+<p>First Excel file needs to be converted to a CSV file by going to <code>File -&gt; Save As</code> and selecting CSV (comma seperated values) as the format. Now it's time to load up R from any console and get to the R shell. The csv file can be loaded by calling <code>read.csv()</code> function</p>
+<pre class="r"><code>DF&lt;-read.csv('input.csv',sep=';')
+head(DF)</code></pre>
+<pre><code>##             Timestamp Age Gender favourite medium
+## 1 11/27/2020 11:15:59  21                        
+## 2 11/27/2020 11:16:07  21                        
+## 3 11/27/2020 11:17:44  21                        
+## 4 11/27/2020 11:19:07  24                        
+## 5 11/27/2020 11:19:14  23                        
+## 6 11/27/2020 11:21:03  22                        
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         list..
+## 1                                                                      Fast and Furious, Captain America, Avenger - End Game, Top Gun, Interstellar, Pirates of the Caribbean, Five Feet Apart, The Fault in Our Stars, The Dark Knight, Joker, The Pursuit of Happiness, Legend, Titanic, The Godfather, Mission Impossible, Matrix Reloaded, Jurassic Park, Deep Blue Sea, Home Alone, Final Destination, 127 hours, Godzilla, Shawshank Redemption, The good, the bad, the ugly, The Wolf of Wall Street, Charlie and the Chocolate Factory
+## 2                                                                                                     Fast and Furious, Gravity, Captain America, Avenger - End Game, Top Gun, Pirates of the Caribbean, The Dark Knight, Joker, Legend, Titanic, The Godfather, Mission Impossible, Lord of the Rings, Matrix Reloaded, Jurassic Park, Home Alone, Jumanji, Final Destination, 127 hours, Godzilla, Shawshank Redemption, Once upon a time in Mexico, The good, the bad, the ugly, The Wolf of Wall Street, Charlie and the Chocolate Factory
+## 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Fast and Furious, Titanic, Home Alone, Charlie and the Chocolate Factory
+## 4 Contagion, Fast and Furious, Gravity, Captain America, Avenger - End Game, Top Gun, Interstellar, Pirates of the Caribbean, The Fault in Our Stars, The Dark Knight, Joker, The Pursuit of Happiness, Legend, Titanic, The Godfather, 7 pounds, Mission Impossible, Lord of the Rings, Matrix Reloaded, Jurassic Park, Deep Blue Sea, Home Alone, Jumanji, Final Destination, 127 hours, Godzilla, Shawshank Redemption, Once upon a time in Mexico, The good, the bad, the ugly, The Wolf of Wall Street, Charlie and the Chocolate Factory
+## 5                                                                                                                                                                                         Fast and Furious, Captain America, Avenger - End Game, Top Gun, Pirates of the Caribbean, Five Feet Apart, The Fault in Our Stars, The Dark Knight, The Godfather, Mission Impossible, Lord of the Rings, Jurassic Park, Deep Blue Sea, Home Alone, Jumanji, Final Destination, Godzilla, The Wolf of Wall Street, Charlie and the Chocolate Factory
+## 6                                                                                                                                                                                                                                                                                                                                     Fast and Furious, Captain America, Avenger - End Game, Interstellar, Pirates of the Caribbean, The Dark Knight, Titanic, Lord of the Rings, Jurassic Park, Shawshank Redemption, The Wolf of Wall Street</code></pre>
+<p>The data from the file is now in the variable <code>DF</code> and the column names can be seen by calling <code>colnames()</code> function</p>
 <pre class="r"><code>print(colnames(DF))</code></pre>
 <pre><code>## [1] &quot;Timestamp&quot; &quot;Age&quot;       &quot;Gender&quot;    &quot;favourite&quot; &quot;medium&quot;    &quot;list..&quot;</code></pre>
+</div>
+<div id="perform-mba-using-r-and-share-most-watched" class="section level3">
+<h3>Perform MBA Using R and share most watched</h3>
+<p>By using builtin summary of the column &quot;favourite movie&quot; we find that the top 10 movies are :</p>
+<pre class="r"><code>head(summary(DF$favourite),n=10)</code></pre>
+<pre><code>##                   Batman Series   Interstellar            Joker        Avengers 
+##              39               5               4               4               3 
+## Captain america      Antonement Band baja barat    Harry Potter      Home alone 
+##               3               2               2               2               2</code></pre>
+</div>
+<div id="visualizations-to-describe-variables-to-answer-the-following" class="section level3">
+<h3>Visualizations to describe variables to answer the following :</h3>
+<ul>
+<li>Find top 3 movies?</li>
+</ul>
+<pre class="r"><code>head(summary(DF$favourite),n=4)</code></pre>
+<pre><code>##               Batman Series Interstellar          Joker 
+##            39             5             4             4</code></pre>
+<p>gnoring the first entry as it contains empty spaces in the survey dataset</p>
+<ul>
+<li>Which age range likes superhero movies?</li>
+</ul>
 <pre class="r"><code>#DF$Age
 #DF$Age&lt;-as.integer(as.factor(DF$Age))
 #DF$Age&lt;-scale(DF$Age)
@@ -232,6 +296,8 @@ plot(hclust_avg)</code></pre>
 #suppressPackageStartupMessages(library(dendextend))
 #avg_col_dend=color_branches(avg_dend_obj,h=3)
 #plot(avg_col_dend)</code></pre>
+</div>
+</div>
 </div>
 
 

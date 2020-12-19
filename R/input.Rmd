@@ -5,23 +5,67 @@ date: 20 Dec 2020
 output: html_document
 ---
 
-# Intro
+# Herrarchial Clustering Using R
+
+## Intro
 
 R is a natural place to play with data and collections of natural / artificial data recorders, commonly in the form of electronic devices, ranging fromm cell phones to embedded platforms.
 
+## Process
+
+1. Install R
+2. Prepare csv from input file (Excel .xlsx)
+3. Start R
+
+## Assignment
+
+2. Excel Sheet to be downloaded from link provided
+3. Perform MBA Using R and share most watched
+4. Create appropriate visualizations to describe variables and answer  the following questions :
+    * Find top 3 movies?
+    * Which age range likes superhero movies?
+5. Using Hierarchial Clustering to find which gender / age group likes which of the top favourite movies?
+
+## Solution
+
+### Loading Excel Data
+
+First Excel file needs to be converted to a CSV file by going to `File -> Save As` and selecting CSV (comma seperated values) as the format. 
+Now it's time to load up R from any console and get to the R shell. The csv file can be loaded by calling `read.csv()` function
 
 ```{r} 
-
-set.seed(786)
 DF<-read.csv('input.csv',sep=';')
-print('Found columns:')
-print(colnames(DF))
-
-
-
+head(DF)
 ```
 
+The data from the file is now in the variable `DF` and the column names can be seen by calling `colnames()` function 
+
+
 ```{r} 
+print(colnames(DF))
+```
+
+### Perform MBA Using R and share most watched
+
+By using builtin summary of the column "favourite movie" we find that the top 10 movies are : 
+```{r}
+head(summary(DF$favourite),n=10)
+```
+
+### Visualizations to describe variables to answer the following :
+ * Find top 3 movies?
+```{r}
+head(summary(DF$favourite),n=4)
+```
+Ignoring the first entry as it contains empty spaces in the survey dataset
+
+ * Which age range likes superhero movies?
+
+
+
+
+
+```{r}
 #DF$Age
 #DF$Age<-as.integer(as.factor(DF$Age))
 #DF$Age<-scale(DF$Age)
