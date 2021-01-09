@@ -1,0 +1,22 @@
+[jaas@Toshiba ~jaas/TE56/Assignmnet1SupportingFiles]$ python -O textEditor.py
+                          ^
+SyntaxError: invalid syntax
+[jaas@Toshiba ~jaas/TE56/Assignmnet1SupportingFiles]$ python -O textEditor.py
+  File "/home/jaasjaas/TE56/Assignmnet1Sup
+ingFiles/textEditor.py", line 3
+    from tkinter as tk
+_tkinter.TclError: can't invoke "pack" command: application has[jaas@Toshiba ~jaas/TE56/Assignmnet1SupportingFiles]$ python -O editor.py
+[jaas@Toshiba ~jaas/TE56/Assignmnet1SupportingFiles]$ python -O editor.py
+c1 evals to:
+someDatatestData1
+[jaas@Toshiba ~jaas/TE56/Assignmnet1SupportingFiles]$ python -O editor.py
+c1 evals to:
+someDatatestData1
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/tkinter/__init__.py", line 1884, in __ca
+    return self.func(*args)
+  File "/home/jaasjaas/TE56/Assignmnet1Support
+pen_file
+    textBuffer = CursorBasedList(None)
+TypeError: __init__() takes 1 positional argument but 2 were given
